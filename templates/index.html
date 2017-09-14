@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+     <title>SQS Demo</title>
+     <link rel="stylesheet" media="screen" href ="static/css/bootstrap.min.css">
+     <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+     <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <h2>AWS SQS Demo</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for message in messages %}
+              {% if "ERROR" in message[1]: %}
+                <div class="alert alert-danger">
+                  <h4>{{ message[1] }}</h4>
+                </div>
+              {% else %}
+                <div class="alert alert-info">
+                  <h3>{{ message[1] }}</h3>
+                  <ul>
+                  <li><h4><a href="/send">Click here to Send messages.</a></h4></li>
+                  <li><h4><a href="/read">Click here to Read messages.</a></h4></li>
+                  </ul>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
+    <br>            
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+     <title>Read Msg</title>
+     <link rel="stylesheet" media="screen" href ="static/css/bootstrap.min.css">
+     <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+     <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Read Messages</h2>
+      <form  action="" method="post">
+        <button type="submit" class="btn btn-success">Read</button>
+      </form>
+      <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for message in messages %}
+              {% if "No" in message[1]: %}
+                <div class="alert alert-danger">
+                  {{ message[1] }}
+                </div>
+              {% endif %}
+
+              {% if "Message:" in message[1]: %}
+                <div class="alert alert-info">
+                  <strong>{{ message[1] }}</strong>
+                </div>
+              {% endif %}
+
+              {% if "Read" in message[1]: %}
+                <div class="alert alert-info">
+                  <strong>{{ message[1] }}</strong>
+                </div>
+              {% endif %}
+              {% if "again" in message[1]: %}
+                <div class="alert alert-warning">
+                  <strong>{{ message[1] }}</strong>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <div>
+          <h4><a href="/">Click here to go back.</a></h4>
+        </div>
+    </div>
+    <br>            
+  </body>
+</html>
