@@ -96,10 +96,10 @@ if __name__ == "__main__":
   wait_sec=10
 
   aws_service="sqs"
-  aws_key_id=os.environ.get('AWS_ACCESS_KEY')
-  aws_secret=os.environ.get('AWS_SECRET_KEY')
-  aws_region=os.environ.get('AWS_REGION')
-  sqs_queue_url=os.environ.get('AWS_SQS_QUEUE_URL')
+  aws_key_id=os.environ.get('SQS_AWS_ACCESS_KEY')
+  aws_secret=os.environ.get('SQS_AWS_SECRET_KEY')
+  aws_region=os.environ.get('SQS_REGION')
+  sqs_queue_url=os.environ.get('SQS_QUEUE_URL')
 
   if (aws_key_id and aws_secret and aws_region and sqs_queue_url) :
     flags.bind = True
