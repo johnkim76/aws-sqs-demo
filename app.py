@@ -96,8 +96,8 @@ if __name__ == "__main__":
   wait_sec=10
 
   aws_service="sqs"
-  aws_key_id=os.environ.get('SQS_AWS_ACCESS_KEY')
-  aws_secret=os.environ.get('SQS_AWS_SECRET_KEY')
+  aws_key_id=os.environ.get('SQS_AWS_ACCESS_KEY_ID')
+  aws_secret=os.environ.get('SQS_AWS_SECRET_ACCESS_KEY')
   aws_region=os.environ.get('SQS_REGION')
   sqs_queue_url=os.environ.get('SQS_QUEUE_URL')
 
